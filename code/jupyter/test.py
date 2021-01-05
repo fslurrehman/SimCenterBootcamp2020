@@ -1,2 +1,0 @@
-import opensees
-opensees.wipe()
