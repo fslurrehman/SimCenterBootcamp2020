@@ -1,0 +1,1 @@
+/usr/bin/cc.exe -Wl,--enable-auto-import CMakeFiles/Exercise2-4.dir/exercise2-4.c.o CMakeFiles/Exercise2-4.dir/stresstransform.c.o -o Exercise2-4.exe -Wl,--out-implib,libExercise2-4.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lm 
