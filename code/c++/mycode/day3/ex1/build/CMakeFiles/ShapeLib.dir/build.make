@@ -115,11 +115,25 @@ CMakeFiles/ShapeLib.dir/Circle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ShapeLib.dir/Circle.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Circle.cpp -o CMakeFiles/ShapeLib.dir/Circle.cpp.s
 
+CMakeFiles/ShapeLib.dir/Square.cpp.o: CMakeFiles/ShapeLib.dir/flags.make
+CMakeFiles/ShapeLib.dir/Square.cpp.o: ../Square.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ShapeLib.dir/Square.cpp.o"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ShapeLib.dir/Square.cpp.o -c /c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Square.cpp
+
+CMakeFiles/ShapeLib.dir/Square.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ShapeLib.dir/Square.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Square.cpp > CMakeFiles/ShapeLib.dir/Square.cpp.i
+
+CMakeFiles/ShapeLib.dir/Square.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ShapeLib.dir/Square.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Square.cpp -o CMakeFiles/ShapeLib.dir/Square.cpp.s
+
 # Object files for target ShapeLib
 ShapeLib_OBJECTS = \
 "CMakeFiles/ShapeLib.dir/ColoredShape.cpp.o" \
 "CMakeFiles/ShapeLib.dir/Rectangle.cpp.o" \
-"CMakeFiles/ShapeLib.dir/Circle.cpp.o"
+"CMakeFiles/ShapeLib.dir/Circle.cpp.o" \
+"CMakeFiles/ShapeLib.dir/Square.cpp.o"
 
 # External object files for target ShapeLib
 ShapeLib_EXTERNAL_OBJECTS =
@@ -127,9 +141,10 @@ ShapeLib_EXTERNAL_OBJECTS =
 libShapeLib.a: CMakeFiles/ShapeLib.dir/ColoredShape.cpp.o
 libShapeLib.a: CMakeFiles/ShapeLib.dir/Rectangle.cpp.o
 libShapeLib.a: CMakeFiles/ShapeLib.dir/Circle.cpp.o
+libShapeLib.a: CMakeFiles/ShapeLib.dir/Square.cpp.o
 libShapeLib.a: CMakeFiles/ShapeLib.dir/build.make
 libShapeLib.a: CMakeFiles/ShapeLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libShapeLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libShapeLib.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/ShapeLib.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ShapeLib.dir/link.txt --verbose=$(VERBOSE)
 

@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ShapeLib.dir/Circle.cpp.o"
   "CMakeFiles/ShapeLib.dir/ColoredShape.cpp.o"
   "CMakeFiles/ShapeLib.dir/Rectangle.cpp.o"
+  "CMakeFiles/ShapeLib.dir/Square.cpp.o"
   "libShapeLib.a"
   "libShapeLib.pdb"
 )

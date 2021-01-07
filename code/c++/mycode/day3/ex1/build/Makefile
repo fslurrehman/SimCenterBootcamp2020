@@ -275,6 +275,33 @@ Rectangle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShapeLib.dir/build.make CMakeFiles/ShapeLib.dir/Rectangle.cpp.s
 .PHONY : Rectangle.cpp.s
 
+Square.o: Square.cpp.o
+
+.PHONY : Square.o
+
+# target to build an object file
+Square.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShapeLib.dir/build.make CMakeFiles/ShapeLib.dir/Square.cpp.o
+.PHONY : Square.cpp.o
+
+Square.i: Square.cpp.i
+
+.PHONY : Square.i
+
+# target to preprocess a source file
+Square.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShapeLib.dir/build.make CMakeFiles/ShapeLib.dir/Square.cpp.i
+.PHONY : Square.cpp.i
+
+Square.s: Square.cpp.s
+
+.PHONY : Square.s
+
+# target to generate assembly for a file
+Square.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ShapeLib.dir/build.make CMakeFiles/ShapeLib.dir/Square.cpp.s
+.PHONY : Square.cpp.s
+
 main1.o: main1.cpp.o
 
 .PHONY : main1.o
@@ -405,6 +432,9 @@ help:
 	@echo "... Rectangle.o"
 	@echo "... Rectangle.i"
 	@echo "... Rectangle.s"
+	@echo "... Square.o"
+	@echo "... Square.i"
+	@echo "... Square.s"
 	@echo "... main1.o"
 	@echo "... main1.i"
 	@echo "... main1.s"

@@ -12,3 +12,7 @@ CMakeFiles/ShapeLib.dir/Rectangle.cpp.o: ../ColoredShape.h
 CMakeFiles/ShapeLib.dir/Rectangle.cpp.o: ../Rectangle.cpp
 CMakeFiles/ShapeLib.dir/Rectangle.cpp.o: ../Rectangle.h
 
+CMakeFiles/ShapeLib.dir/Square.cpp.o: ../ColoredShape.h
+CMakeFiles/ShapeLib.dir/Square.cpp.o: ../Square.cpp
+CMakeFiles/ShapeLib.dir/Square.cpp.o: ../Square.h
+
