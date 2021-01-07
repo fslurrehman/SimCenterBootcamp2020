@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex2/Vector.h
+
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex2/main.cpp
+iostream
+-
+Vector.h
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex2/Vector.h
+

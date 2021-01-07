@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/ColoredShape.h
+iostream
+-
+string
+-
+
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Rectangle.h
+ColoredShape.h
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/ColoredShape.h
+
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Square.h
+ColoredShape.h
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/ColoredShape.h
+
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/main1.cpp
+Rectangle.h
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Rectangle.h
+Square.h
+/c/users/fr/documents/simcenterbootcamp2020/code/c++/mycode/day3/ex1/Square.h
+
