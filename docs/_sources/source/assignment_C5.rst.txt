@@ -3,12 +3,13 @@ C: Tapis-cli
 
 .. note::
 
-   Initial setup is required of the **Tapis-cli**. This is done by invoking the dollowing in a linux (see warning below) shell:
+   Initial setup is required of the **Tapis-cli**. This is done by invoking the dollowing in a linux (see warning below) shell. For some systems, i.e. **ubuntu** you should use **pip3** instead of **pip**:
 
    .. code:: 
 
        pip install tapis-cli
 
+ 
  Once the cli is installed you need to configure it to use deignsafe and you need to provide your username and password:
 
    .. code::  
@@ -23,11 +24,25 @@ Today we have a number of exercises. The purpose of these exercisess is to set i
 
 .. warning:: 
 
-   At time of writing, the **-F** option was failing **tapis** commands for all python versions tested running on Windows. Try the command, if not fixed you will have to install the **Ubuntu system for Windows** and run this exercise from a Ubutu shell. If that fails, you can complete the exercise logged into Frontera or Stampede2!
-      
-.. note::
 
-   **How to install the Ubuntu subsystem on Windows 10**
+   If you fail in last part of first exercise it means that the **tapis-cli** is not going to work. You have 3 options.
+
+   1. Try and update to the latest code:
+
+     .. code::
+
+        git clone https://github.com/TACC-Cloud/tapis-cli.git
+        $ cd tapis-cli
+        $ pip install --upgrade .
+   
+   2. Run exercise at TACC using either Frontera or Stampede2. To do this you need to install **tapis-cli** as a local user.
+
+
+     .. code::
+
+	pip intall tapis-cli --user
+      
+   3. **How to install the Ubuntu subsystem on Windows 10**
 
    The Ubuntu subsystem is actually a full Ubuntu linux system running within a virtual machine while
    Windows is running as the primary OS. Microsoft provides step-by-step instructions on how to install
@@ -67,19 +82,24 @@ The Frontera file is shown below:
   :language: json
   :linenos:
 
-In this file you need to search for the following and replace them with appropriate text. The **${ALLOCATION}** text is replaced with **-A FTA-DD-SimCenter** if using Frontera and with **-A **:
+In this file you need to search for the following and replace them with appropriate text. The **${ALLOCATION}** text is replaced with **-A FTA-DD-SimCenter** if using Frontera.
+
+These are the four values that need to be replaced:
 
 ${USERNAME}, 
 ${PASSWORD}, 
 ${SCRATCH_DIR} and
 ${ALLOCATION}.
 
+The sscratch_dir can be found by logging into Frontera, issuing the commands cds (change dir to scratch) and then pwd (print working directory). The results of pwd is your scratch dir.
+
 Once the file has been completed, you can create the system by invoking one of the the following command.
+
 
 for Frontera:
 
-   .. code::
-      
+ .. code::
+  
       tapis systems create  -F fronteraSystem.json
 
  Now have a look for it. In the file we named it demo something.
@@ -114,25 +134,25 @@ Begin by listing the files in your home directory
 
 .. code::
 
-   tapis files list agave://desihnsafe.storage/default/YOUR_NAME
+   tapis files list agave://designsafe.storage.default/YOUR_NAME
 
 Add a directory tmp to your home folder at DesignSafe
 
 .. code::
 
-   tapis files mkdir agave://desihnsafe.storage/default/YOUR_NAME tmp
+   tapis files mkdir agave://designsafe.storage.default/YOUR_NAME tmp
 
-Copy a small file **SimCenterBootcamp2020/code/agave/ExerciseDays4/ex1/mpiPI.c** to your current directory. From there send it to your new folder at DesignSafe.
+Copy a small file **SimCenterBootcamp2020/code/agave/ExerciseDays4/ex1/piMPI.c** to your current directory. From there send it to your new folder at DesignSafe.
 
 .. code::
 
-   tapis files upload agave://desihnsafe.storage/default/YOUR_NAME/tmp  mpiPI.c
+   tapis files upload agave://designsafe.storage.default/YOUR_NAME/tmp  piMPI.c
 
 Remove your local copy and try and copy the file you just uploaded.
 
 .. code::
 
-   tapis files download agave://desihnsafe.storage/default/YOUR_NAME/tmp/mpiPI.c
+   tapis files download agave://designsafe.storage.default/YOUR_NAME/tmp/piMPI.c
 
 List the other **tapis** file commands and explore what they do.
 
@@ -150,14 +170,14 @@ A Tapis **apps** is a containerized application. Each app has a description that
 We are going a tapis container application we are going to use some tapis apps and files comamnds to do so. To build our app, like all programmers do, we are going to start by cloning an existing one that has similar inputs to the one we want, basically an input directory and a parameter. We will name the app **mpiCompileRun** and associate it with the exe srvice we created in exercise 1. (You will need the name). Use the following command to see what is needed.
 
 
-The app we have in mind is one that will compile a program we have uploaded **mpiPI.c** say and run it. A wrapper.sh file for this purpose is shown below:
+The app we have in mind is one that will compile a program we have uploaded **piMPI.c** say and run it. A wrapper.sh file for this purpose is shown below:
 
 
 We are first going to search for an app to clone. Let us look at simcenter apps.
 
 .. code::
    
-   apps tapis apps search --name like simcenter -f json
+   tapis apps search --name like simcenter -f json
 
 You should see one with an id **simcenter-dakota-1.0.0u1**. Have a look at it's description.
 
@@ -171,7 +191,7 @@ You will see it takes an input directory and some parameters to run. We will use
 
       tapis apps clone -h
 
-After having reviewed results of previous, you should be able to understand the following. The command to clone is some modifications based on your account to the following:
+After having reviewed results of previous, you should be able to understand the following. The command to clone is some **modifications based on your account**, i.e. the -e refers to the execution service and for that you need to enter the **id** of the execution service you created:
 
 .. code:: 
 
@@ -201,4 +221,57 @@ We now have an application ready and wating to compile our code and run it!
 Step 4: Submitting a Job
 ------------------------
 
-Last exercise is to actually submit a job. For this we will use the jobs service. 
+Last exercise is to actually submit a job using a file. In the **code/agave** folder there is a file **piMPI.c** and a json file **cloneSubmit.json**. The **piMPI.c** we have alredy used in files and placed in a demo folder at designsafe off our remote home folder. To submit a job to run at TACC through tapis we need to create the input file telling tapis what to do. The input file is application specific. An input file template for our app is found in **cloneSubmit.json** which is shown below:
+
+.. literalinclude:: ./assignments/c5/cloneSubmit.json
+  :language: json
+  :linenos:
+
+There are 3 lines in this file needing changing. In Line 3 you need to set the **appID** to be equal to name of the app you created in step 3. You need to set the **inputDirectory** equal to the location you placed the **piMPI.c** file on line 5 and finally the name of the program to compile and run **programName** needs to be set on line 8. Other options are set for the piMPI application such as runTime, numNodes and numCores.
+
+After file has been saved the use submits it to tapis job service by typing the following:
+
+.. code::
+
+   tapis jobs submit -F cloneSubmit.json
+
+Tapis will respond with a message that hopefully says job was submitted sucessfully and will provide a **jobID**. That **jobID** is important, as you will use it to query status of job and download job information when job finished.
+
+To look up job status, type:
+
+.. code::
+
+   tapis jobs status -f json 5ce7f59d-0c4f-46c1-806a-35965317525f-007
+
+There are a number of states a job might be in, **queued**, **running**, **finished**, and the dreaded **failed**. Once a job has finished you can download the results with
+     
+
+tapis jobs  show –f json 5ce7f59d-0c4f-46c1-806a-35965317525f-007
+
+This results in a long list of output. Buried in it is the **archivePath** section. This is where the results have been stored.
+
+.. code:: 
+
+     "accepted": "2021-01-08T10:19:45.773Z",
+     "appId": "mpiCompileSimCenter-0.0.1",
+     "appUuid": "7984683744829894165-242ac117-0001-005",
+     "archive": true,
+     "archivePath": "tg457427/archive/jobs/job-507792d1-35b0-4dc0-abd2-421cfba7ddc3-007",
+     "archiveSystem": "designsafe.storage.default",
+     "blockedCount": 0,
+     "created": "2021-01-08T10:19:45.779Z",
+     "ended": "7 hours ago",
+
+
+The results folder can be viewed using the **tapis files list** command, i.e. for my job I would list the files in the following way:
+
+.. code::
+
+   tapis files list agave://designsafe.storage.default/tg457427/archive/jobs/job-507792d1-35b0-4dc0-abd2-421cfba7ddc3-007
+
+In this folder you will see a long file name ending in **.out**. This you can download with the **tapis files download**. The results of the file I submitted is as shown below.
+
+
+.. literalinclude:: ./assignments/c5/results.json
+  :language: json
+  :linenos:
